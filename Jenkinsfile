@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    // environment 
+    //    DOCKERHUB_CREDENTIALS=credentials(docker-creds)
 
     stages {
         stage('Build') {
@@ -7,9 +9,14 @@ pipeline {
                 sh 'docker build -t melong123/webapp:1.0.1 .'
             }
         }
-                stage('RUN') {
+        stage('Login') {
             steps {
-                sh 'docker run -d --name my-webapp -p 88:80 melong123/webapp:1.0.1'
+                sh 'docker login -u melong123 -p melong123'
+            }
+        }
+        stage('Push') {
+            steps {
+                sh 'docker push melong123/webapp:1.0.1'
             }
         }
     }
