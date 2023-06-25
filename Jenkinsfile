@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t melong123/webapp:1.0.1 .'
+                sh 'docker build -t melong123/webapp:1.0.2 .'
             }
         }
         stage('Login') {
