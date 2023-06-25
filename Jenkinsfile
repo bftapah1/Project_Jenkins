@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push melong123/webapp:1.0.1'
+                sh 'docker push melong123/webapp:1.0.2'
             }
         }
     }
