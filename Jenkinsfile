@@ -19,5 +19,10 @@ pipeline {
                 sh 'docker push melong123/webapp:1.0.2'
             }
         }
+        stage('Logout') {
+            steps {
+                sh 'docker logout'
+            }
+        }
     }
 }
